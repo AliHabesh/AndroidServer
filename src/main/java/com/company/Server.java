@@ -25,9 +25,15 @@ public class Server {
             String opCode  = br.readLine();
             String dataFromClient = br.readLine();
             if (opCode.equals("exit")) break;
-            System.out.println("This is the opCode -->: "+opCode);
-            System.out.println("This is the data -->: "+dataFromClient);
-            JsonFileOperations.editJsonFile(dataFromClient, opCode);
+
+            if (opCode.equals("0")){
+                System.out.println(dataFromClient);
+            }else {
+                System.out.println("This is the opCode -->: " + opCode);
+                System.out.println("This is the data -->: " + dataFromClient);
+
+                JsonFileOperations.editJsonFile(dataFromClient, opCode);
+            }
 
         }
 
